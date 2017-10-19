@@ -85,8 +85,9 @@ class conexion {
     }
 
     function ActualizarUsuario($fila = array()){
-      $query = "UPDATE `usuarios` SET `nombre` = '".$fila[1]."', `apellido` = '".$fila[2]."', `correo` = '".$fila[3]."', `password` = '".$fila[4]."', `genero` = '".$fila[5]."', `rol` = '".$fila[6]."' WHERE `usuarios`.`id` = ".$fila[0];
+      $query = "UPDATE `usuarios` SET `username` = '".$fila[1]."', `correo` = '".$fila[2]."', ' WHERE `usuarios`.`id_user` = ".$fila[0];
       mysql_query($query);
+//      echo "QUERY: ". $query;
       header('Location: ../index.php');
     }
 

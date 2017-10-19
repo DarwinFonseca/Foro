@@ -42,13 +42,13 @@ if (isset($_POST['btnEliminar'])) {
 
 //Editar sesion
 if (isset($_POST['btnEditar'])) {
-  if ($_POST['id_usuario']=="") {
-    header('Location: ../vista/contenido.php');
+  if ($_POST['id_user']=="") {
+    //header('Location: ../vista/contenido.php');
   }else{
     require '../modelo/conexion.php';
     $db = new conexion();
     $db->Conectar();
-    $db->EditarUsuario($_POST['id_usuario']);
+    $db->ActualizarUsuario(array($_POST['id_user'],$_POST['username'],$_POST['correo']));
     //header('Location: ../vista/editar.php');
   }
 }
@@ -59,7 +59,7 @@ if (isset($_POST['btnCrearPublicacion'])) {
     $db = new conexion();
     $model = new publicar();
     $db->Conectar();
-    $model->CrearPublicacion(array(null, $_POST['descripcion'], $_POST['link'], 0, 0));
+    $model->CrearPublicacion(array(null, $_POST['descripcion'], $_POST['link'], 0, 0, 'activo'));
     $model->PublicacionUsuario(array($_SESSION['id_user'], null));
 
     header('Location: ../vista/contenido.php');

@@ -40,7 +40,7 @@ class comentar{
 HTML;
       $http="http://";
       while ($row = mysql_fetch_array($result)) {
-        echo "<tr><td><a href=".$http.$row['link']." target='_blank'>" . $row["descripcion"] . "</a></td><td>" . $row["username"] . "</td><td>" . $row["votos"] . "</td><td>" . $row["comentarios"] . "</td></tr>";
+        echo "<tr><td><a href=".$http.$row['link']." target='_blank'>" . $row["descripcion"] . "</a></td><td>" . $row["username"] . "</td><td><a class='uk-icon-hover uk-icon-thumbs-o-up' /> " . $row["votos"] . "</a></td><td><a class='uk-icon-hover uk-icon-comments-o' /> " . $row["comentarios"] . "</a></td></tr>";
       if (empty($row)) {
         echo '<tr><td align="center" colspan="5">No hay publicaciones</td></tr>';
       }

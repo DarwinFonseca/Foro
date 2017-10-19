@@ -13,7 +13,8 @@ CREATE TABLE `publicaciones` (
 `descripcion`  varchar(900) NOT NULL,
 `link`  varchar(100) NOT NULL,
 `votos` INT(100) NOT NULL,
-`comentarios` INT(100) NOT NULL
+`comentarios` INT(100) NOT NULL,
+`estado` varchar(45) NOT NULL
 );
 
 CREATE TABLE `publicacionesxusuario` (

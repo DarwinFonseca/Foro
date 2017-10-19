@@ -31,20 +31,15 @@ if(!isset($_SESSION['id_user'])){
             </p-->
             <hr class='uk-grid-divider'>
             <div class="uk-grid-divider uk-grid-margin uk-text-center">
-            <?php
-              require_once '../controlador/links.php';
-              $mostrar = new links();
-              $mostrar->MostrarLinks();
-             ?>
-           </div>
-            <hr class='uk-grid-divider'>
+            <a href="contenido.php"><button value="Volver" class="uk-grid-width-1-2 uk-button uk-button-danger uk-button-large">Volver</button></a></p>
+          </div><hr class='uk-grid-divider'>
             <!--a href="crear_publicacion.php">Publicar</a><br>
             <a href="../index.php">Cerrar sesión</a-->
             <div class="uk-overflow-auto">
               <?php
                 require_once '../modelo/publicar.php';
                 $mostrar = new publicar();
-                $mostrar->ConsutarPublicaciones();
+                $mostrar->ConsutarMisPublicaciones();
                ?>
                <!-- /.table-responsive -->
             </div>
