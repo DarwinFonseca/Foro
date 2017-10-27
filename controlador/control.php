@@ -72,8 +72,8 @@ if (isset($_POST['btnCrearPublicacion'])) {
     $db = new conexion();
     $model = new publicar();
     $db->Conectar();
-    $model->CrearPublicacion(array(null, $_POST['descripcion'], $_POST['link'], 0, 0, 'activo'));
     $model->PublicacionUsuario(array($_SESSION['id_user'], null));
+    $model->CrearPublicacion(array(null, $_POST['descripcion'], $_POST['link'], 0, 0, 'activo'));
 
     header('Location: ../vista/contenido.php');
 }
