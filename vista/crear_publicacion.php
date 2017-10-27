@@ -33,6 +33,7 @@ if (!isset($_SESSION['id_user']) || $_SESSION['id_user']=="0") {
               <br><br><input class="uk-width-1-1 uk-button uk-button-primary uk-button-large" type="submit" value="Crear Publicacion"  id="btnCrearPublicacion" name="btnCrearPublicacion" />
           </div>
     </form>
+    <br><br><a href="contenido.php"><button value="Volver" class="uk-grid-width-1-2 uk-button uk-button-danger uk-button-large">Volver</button></a></p>
 </div>
   </body>
 </html>

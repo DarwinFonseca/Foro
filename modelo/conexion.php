@@ -79,56 +79,18 @@ class conexion {
     }
 
     function EliminarUsuario($id_usuario) {
-        $query = "DELETE FROM `usuarios` WHERE `usuarios`.`id` = ".$id_usuario;
-        $result = mysql_query($query);
+      $query = "DELETE FROM `usuarios` WHERE `usuarios`.`id_user` = 1";
+        $WWWquery = "DELETE FROM `usuarios` WHERE `usuarios`.`id` = ".$id_usuario;
+        mysql_query($query);
         header('Location: ../index.php');
     }
 
     function ActualizarUsuario($fila = array()){
-      $query = "UPDATE `usuarios` SET `username` = '".$fila[1]."', `correo` = '".$fila[2]."', ' WHERE `usuarios`.`id_user` = ".$fila[0];
-      mysql_query($query);
-//      echo "QUERY: ". $query;
+      //$query = "UPDATE `usuarios` SET `username` = '".$fila[1]."', `apellido` = '".$fila[2]."', `correo` = '".$fila[3]."', `password` = '".$fila[4]."', `genero` = '".$fila[5]."', `rol` = '".$fila[6]."' WHERE `usuarios`.`id` = ".$fila[0];
+      $Mysql="UPDATE `usuarios` SET `username` = '".$fila[1]."', `password` = '".$fila[2]."', `correo` = '".$fila[3]."' WHERE `usuarios`.`id_user` = ".$fila[0];
+      mysql_query($Mysql);
+      //echo "QUERY: ". $Mysql;
       header('Location: ../index.php');
     }
-
-    function EditarUsuario($id_usuario) {
-          session_destroy();
-          session_start();
-          $query = "SELECT * FROM `usuarios` WHERE `usuarios`.`id` = ".$id_usuario;
-          $result = mysql_query($query);
-          echo "El ID del usuario a editar es el ". $id_usuario . ".";
-
-          while ($row = mysql_fetch_array($result)) {
-              $_SESSION['id']     = $row['id'];
-              $_SESSION['nombre'] = $row['nombre'];
-              $_SESSION['apellido'] = $row['apellido'];
-              $_SESSION['correo'] = $row['correo'];
-              $_SESSION['password'] = $row['password'];
-              $_SESSION['genero'] = $row['genero'];
-              $_SESSION['rol']  = $row['rol'];
-            }
-
-    /*                        echo "session";
-                        echo "<br>" .            $_SESSION["id"];
-                        echo "<br>" .            $_SESSION["nombre"] . "</td>";
-                        echo "<br>" .            $_SESSION["apellido"] . "</td>";
-                        echo "<br>" .            $_SESSION["correo"] . "</td>";
-                        echo "<br>" .            $_SESSION["password"] . "</td>";
-                        echo "<br>" .            $_SESSION["genero"] . "</td>";
-                        echo "<br>" .            $_SESSION["rol"] . "</td></tr>";
-    */
-    header('location: ../vista/editar.php');
-    }
-
-/*    function SubirComentario($fila = array()){
-      $ValoresFila = "";
-      while (list($key, $val) = each($fila)) {
-      $ValoresFila = $ValoresFila . "'" . $val . "', ";
-      }
-      $ValoresFila = substr($ValoresFila, 0, -2);
-      echo "insert into usuarios values (" . $ValoresFila . "); <br>";
-      //mysql_query("insert into comentarios values (" . $ValoresFila . ");")or die('<br>La consulta fallo<br><br> ' . mysql_error());
-    }
-*/
 }
 ?>
